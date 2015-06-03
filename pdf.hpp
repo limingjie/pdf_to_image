@@ -20,5 +20,5 @@ public:
     int size();
     bool good();
 
-    void render(int from, int to, int zoom = 100);
+    bool render(int from, int to, int zoom = 100);
 };
