@@ -18,13 +18,13 @@
 class window : public Fl_Window
 {
 private:
-	Fl_Input *filename_input;
+    Fl_Input *filename_input;
 
-	void create_ui();
-	static void on_pick_button_click(Fl_Widget *sender, void *obj);
+    void create_ui();
+    static void on_pick_button_click(Fl_Widget *sender, void *obj);
 
-	void process();
+    void process();
 
 public:
-	window(int x, int y, int w, int h, const char *label = 0);
+    window(int x, int y, int w, int h, const char *label = 0);
 };
