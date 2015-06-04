@@ -7,11 +7,15 @@ extern "C" {
 class pdf
 {
 private:
-    fz_context *ctx;
+    fz_context  *ctx;
     fz_document *doc;
-    int pagecount;
-    std::string _filename;
-    bool _good;
+
+    bool         _good;
+    char        *_image_name;
+    int          _size;
+    std::string  _filename;
+
+    void generate_image_name(int page, int width);
 
 public:
     pdf(const char *filename);

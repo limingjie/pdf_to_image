@@ -3,43 +3,67 @@
 #include <sstream>
 #include <algorithm>
 #include <cmath>
+#include <iostream>
 
 pdf::pdf(const char *filename)
 {
     _filename = filename;
+    _image_name = nullptr;
 
     // Create a context to hold the exception stack and various caches.
     ctx = fz_new_context(NULL, NULL, FZ_STORE_UNLIMITED);
 
-    // Register the default file types.
-    fz_register_document_handlers(ctx);
-
-    // Open the PDF, XPS or CBZ document.
-    fz_try(ctx)
-    {
-        doc = fz_open_document(ctx, filename);
-        _good = true;
-    }
-    fz_catch(ctx)
+    if (!ctx)
     {
         _good = false;
         return;
     }
 
-    // Retrieve the number of pages (not used in this example).
-    pagecount = fz_count_pages(ctx, doc);
+    fz_var(doc);
+    fz_try(ctx)
+    {
+        // Register the default file types.
+        fz_register_document_handlers(ctx);
+
+        // Open the PDF, XPS or CBZ document.
+        doc = fz_open_document(ctx, filename);
+
+        // Retrieve the number of pages (not used in this example).
+        _size = fz_count_pages(ctx, doc);
+
+        _good = true;
+    }
+    fz_catch(ctx)
+    {
+        doc = 0;
+        _good = false;
+    }
 }
 
 pdf::~pdf()
 {
     // Clean up.
-    fz_drop_document(ctx, doc);
-    fz_drop_context(ctx);
+    fz_try(ctx)
+    {
+        if (doc)
+        {
+            fz_drop_document(ctx, doc);
+        }
+
+        if (ctx)
+        {
+            fz_drop_context(ctx);
+        }
+    }
+    fz_catch(ctx)
+    {
+        // Nothing can be done here...
+    }
 }
 
 int pdf::size()
 {
-    return pagecount;
+    return _size;
 }
 
 bool pdf::good()
@@ -47,13 +71,30 @@ bool pdf::good()
     return _good;
 }
 
+void pdf::generate_image_name(int page, int width)
+{
+    if (_image_name)
+    {
+        delete[] _image_name;
+        _image_name = nullptr;
+    }
+
+    std::stringstream ss;
+    ss.width(width);
+    ss.fill('0');
+    ss << std::right << page;
+
+    std::string filename = _filename + '.' + ss.str() + ".png";
+
+    _image_name = new char[filename.size() + 1];
+    std::copy(filename.begin(), filename.end(), _image_name);
+    _image_name[filename.size()] = '\0';
+}
+
 bool pdf::render(int from, int to, int zoom)
 {
     if (!_good) return false;
 
-    std::stringstream ss;
-    std::string filename;
-    char *writable;
     int width = std::log10(to) + 1;
 
     // Calculate a transform to use when rendering. This transform
@@ -65,18 +106,7 @@ bool pdf::render(int from, int to, int zoom)
 
     for (int i = from; i <= to; ++i)
     {
-        // generate filename
-        ss.str("");
-        ss.clear();
-        ss << _filename << '.';
-        ss.width(width);
-        ss.fill('0');
-        ss << std::right << i;
-        ss << ".png";
-        filename = ss.str();
-        writable = new char[filename.size() + 1];
-        std::copy(filename.begin(), filename.end(), writable);
-        writable[filename.size()] = '\0';
+        generate_image_name(i, width);
 
         fz_try(ctx)
         {
@@ -126,8 +156,7 @@ bool pdf::render(int from, int to, int zoom)
             fz_drop_device(ctx, dev);
 
             // Save the pixmap to a file.
-            fz_write_png(ctx, pix, writable, 0);
-            delete[] writable;
+            fz_write_png(ctx, pix, _image_name, 0);
 
             // Clean up.
             fz_drop_pixmap(ctx, pix);
