@@ -52,7 +52,7 @@ void window::on_pick_button_click(Fl_Widget *sender, void *obj)
     window *w = (window *)obj;
 
     Fl_Native_File_Chooser native;
-    native.title("Pick a file");
+    native.title("Pick a document");
     native.type(Fl_Native_File_Chooser::BROWSE_FILE);
     native.filter("PDF\t*.pdf");
     if (w->filename_input->size() != 0)

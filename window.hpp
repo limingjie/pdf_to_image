@@ -10,11 +10,9 @@
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Button.H>
-#include <FL/Fl_Box.H>
 #include <FL/Fl_Native_File_Chooser.H>
 #include <FL/fl_ask.H> // fl_alert
 #include <FL/Fl_Input.H>
-#include <FL/Fl_Int_Input.H>
 #include <FL/Fl_Choice.H>
 #include <FL/Fl_Check_Button.H>
 #include <FL/Fl_Spinner.H>
