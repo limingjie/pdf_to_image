@@ -19,7 +19,6 @@ pdf::pdf(const char *filename)
         return;
     }
 
-    fz_var(doc);
     fz_try(ctx)
     {
         // Register the default file types.
@@ -49,16 +48,13 @@ pdf::~pdf()
         {
             fz_drop_document(ctx, doc);
         }
-
-        if (ctx)
-        {
-            fz_drop_context(ctx);
-        }
     }
     fz_catch(ctx)
     {
         // Nothing can be done here...
     }
+
+    fz_drop_context(ctx);
 }
 
 int pdf::size()
