@@ -1,7 +1,7 @@
 //
 // window.hpp
 //
-// June 20, 2015 - by Mingjie Li (limingjie@outlook.com)
+// June 5, 2015 - by Mingjie Li (limingjie@outlook.com)
 // https://github.com/limingjie
 //
 
@@ -25,13 +25,13 @@ class window : public Fl_Window
 {
 private:
 
-    pdf             *p;
+    pdf             *_pdf;
 
-    Fl_Input        *filename_input;
-    Fl_Check_Button *page_check;
-    Fl_Spinner      *from_page_spinner;
-    Fl_Spinner      *to_page_spinner;
-    Fl_Choice       *quality_choice;
+    Fl_Input        *_filename_input;
+    Fl_Check_Button *_page_check;
+    Fl_Spinner      *_from_page_spinner;
+    Fl_Spinner      *_to_page_spinner;
+    Fl_Choice       *_quality_choice;
 
     void create_ui();
     static void on_pick_button_click(Fl_Widget *sender, void *obj);

@@ -1,3 +1,12 @@
+//
+// pdf.hpp
+//
+// June 5, 2015 - by Mingjie Li (limingjie@outlook.com)
+// https://github.com/limingjie
+//
+
+#pragma once
+
 extern "C" {
 #include <mupdf/fitz.h>
 }
@@ -7,10 +16,11 @@ extern "C" {
 class pdf
 {
 private:
-    fz_context  *ctx;
-    fz_document *doc;
+    fz_context  *_ctx;
+    fz_document *_doc;
 
     bool         _good;
+    bool         _needs_password;
     char        *_image_name;
     int          _size;
     std::string  _filename;
@@ -21,8 +31,10 @@ public:
     pdf(const char *filename);
     ~pdf();
 
-    int size();
-    bool good();
+    bool needs_password();
+    bool set_password(const char *password);
 
+    int  size();
+    bool good();
     bool render(int from, int to, int zoom = 100);
 };
