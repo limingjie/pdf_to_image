@@ -3,7 +3,9 @@
 ##Release Note
 ###v0.2
 - Open password protected PDF.
-- New High (600dpi) quality.
+- New Large (600dpi) quality.
+- [Windows] Static link to CRT, remove dll dependency.
+- [Bug Fix] Not valid Win32 application on Windows XP.
 
 ###v0.1
 - Convert PDF to PNG images.
