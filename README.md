@@ -44,9 +44,31 @@
   $ make
   ```
 
-###Windows (vs2013)
-- Make sure FLTK and MuPDF are compiled with same type of run time library,
-both /MD or /MT.
-- Create a new solution include all .cpp and .hpp file.
-- Add FLTK and MuPDF include path to compiler.
-- Add FLTK and MuPDF library to linker.
+###Windows (Visual Studio 2013)
+- Build FLTK (Optional)
+(Pre-built library provided.)
+  - Download and extract http://fltk.org/pub/fltk/1.3.3/fltk-1.3.3-source.tar.gz.
+  - Install CMake, generate Visual Studio solution and project files.
+  - Open Visual Studio solution.
+  - In Properties, change Configuration -> C/C++ -> Code Generation ->
+  Runtime Library to **Multi-threaded (/MT)** for following projects.
+    - fltk
+    - fltk_forms
+    - fltk_gl
+    - fltk_images
+    - fltk_jpeg
+    - fltk_png
+    - fltk_z
+  - Build these projects.
+
+- Build MuPDF (Optional)
+(Pre-built library provided.)
+  - Download and extract http://mupdf.com/downloads/mupdf-1.7a-source.tar.gz.
+  - Open mupdf-1.7a-source\platform\win32\mupdf.sln.
+  - In Properties, change Configuration -> C/C++ -> Code Generation ->
+  Runtime Library to **Multi-threaded (/MT)** for all projects.
+  - Build the solution.
+
+- Build PDF to Image
+  - Open vs2013\pdf_to_image.sln
+  - Build the solution.
