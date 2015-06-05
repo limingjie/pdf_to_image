@@ -16,6 +16,7 @@
 #include <FL/Fl_Choice.H>
 #include <FL/Fl_Check_Button.H>
 #include <FL/Fl_Spinner.H>
+#include <FL/Fl_Box.H>
 
 #include <string>
 

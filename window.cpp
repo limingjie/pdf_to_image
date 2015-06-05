@@ -44,8 +44,14 @@ void window::create_ui()
     _quality_choice = new Fl_Choice(270, 45, 120, 25, "Quality:");
     _quality_choice->add("Web (72dpi)");
     _quality_choice->add("Print (300dpi)");
-    _quality_choice->add("HIgh (600dpi)");
+    _quality_choice->add("Large (600dpi)");
     _quality_choice->value(0);
+
+    Fl_Box *author = new Fl_Box(10, 75, 380, 15, "Mingjie Li (https://github.com/limingjie/)");
+    author->box(FL_FLAT_BOX);
+    author->align(FL_ALIGN_INSIDE | FL_ALIGN_RIGHT);
+    author->labelsize(12);
+    author->labelcolor(fl_rgb_color(128, 128, 128));
 }
 
 void window::on_pick_button_click(Fl_Widget *sender, void *obj)
