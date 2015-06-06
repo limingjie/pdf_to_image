@@ -121,13 +121,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\pdf.cpp" />
-    <ClCompile Include="..\window.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\pdf.cpp" />
+    <ClCompile Include="..\src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\pdf.hpp" />
-    <ClInclude Include="..\window.hpp" />
+    <ClInclude Include="..\src\pdf.hpp" />
+    <ClInclude Include="..\src\window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

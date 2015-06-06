@@ -123,7 +123,8 @@ void pdf::generate_image_name(int page, int width)
     else
     {
         std::string number = ss.str();
-        std::copy(number.begin(), number.end(), &_image_name[_filename.size() + 1]);
+        std::copy(number.begin(), number.end(),
+            &_image_name[_filename.size() + 1]);
     }
 }
 

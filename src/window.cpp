@@ -47,11 +47,13 @@ void window::create_ui()
     _quality_choice->add("Large (600dpi)");
     _quality_choice->value(0);
 
-    Fl_Box *author = new Fl_Box(10, 75, 380, 15, "Mingjie Li (https://github.com/limingjie/)");
+    Fl_Button *author = new Fl_Button(10, 75, 380, 15,
+        "Mingjie Li (https://github.com/limingjie/pdf_to_image)");
     author->box(FL_FLAT_BOX);
     author->align(FL_ALIGN_INSIDE | FL_ALIGN_RIGHT);
     author->labelsize(12);
     author->labelcolor(fl_rgb_color(128, 128, 128));
+    author->callback(on_author_click, this);
 }
 
 void window::on_pick_button_click(Fl_Widget *sender, void *obj)
@@ -181,6 +183,13 @@ void window::on_to_page_spinner_change(Fl_Widget *sender, void *obj)
     }
 }
 
+void window::on_author_click(Fl_Widget *sender, void *obj)
+{
+    char errmsg[512];
+    fl_open_uri("https://github.com/limingjie/pdf_to_image",
+        errmsg, sizeof(errmsg));
+}
+
 void window::open_pdf()
 {
     if (_pdf)
@@ -195,7 +204,8 @@ void window::open_pdf()
     const char *password;
     while (_pdf->needs_password())
     {
-        password = fl_password("Enter password for %s. (%d/3)", "", _filename_input->value(), count);
+        password = fl_password("Enter password for %s. (%d/3)", "",
+                               _filename_input->value(), count);
 
         if (password == NULL) // canceled
         {

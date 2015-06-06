@@ -1,4 +1,5 @@
 #PDF to Image
+To easily and quickly convert PDF document to images.
 
 ##Release Note
 ###v0.2
@@ -12,9 +13,13 @@
 - Web (72dpi) and Print (300dpi) quality.
 - Select pages.
 
+##Author
+- [Mingjie Li](mailto:limingjie@outlook.com)
+- [GitHub](https://github.com/limingjie)
+
 ##Build
 ###Linux (g++)
-- Create Development Directory
+- Create Development Directory (For linking MuPDF 3rd party libraries)
   ```console
   $ cd
   $ mkdir Development
@@ -47,7 +52,7 @@
   ```
 
 ###Windows (Visual Studio 2013)
-- Build FLTK (Optional, pre-built library provided.)
+- Build FLTK (Optional, pre-built libraries provided.)
   - Download and extract http://fltk.org/pub/fltk/1.3.3/fltk-1.3.3-source.tar.gz.
   - Install CMake, generate Visual Studio solution and project files.
   - Open Visual Studio solution.
@@ -62,7 +67,7 @@
     - fltk_z
   - Build these projects.
 
-- Build MuPDF (Optional, pre-built library provided.)
+- Build MuPDF (Optional, pre-built libraries provided.)
   - Download and extract http://mupdf.com/downloads/mupdf-1.7a-source.tar.gz.
   - Open mupdf-1.7a-source\platform\win32\mupdf.sln.
   - In Properties, change Configuration -> C/C++ -> Code Generation ->
