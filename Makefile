@@ -31,9 +31,13 @@ MUPDF_LDFLAGS  = /usr/local/lib/libmupdf.a $(MUPDF_DIR)/libz.a    \
 
 all: pdf2image$(X)
 
-pdf2image$(X): obj/main.o obj/window.o obj/pdf.o
+pdf2image$(X): obj obj/main.o obj/window.o obj/pdf.o
 	@echo "==>Linking pdf2image$(X)..."
 	$(CXX) -o pdf2image$(X) obj/main.o obj/window.o obj/pdf.o $(FLTK_LDFLAGS) $(MUPDF_LDFLAGS)
+
+obj:
+	@echo "==>Creating directory for objects..."
+	mkdir obj
 
 obj/main.o: src/main.cpp src/window.hpp src/pdf.hpp
 	@echo "==>Compiling main.cpp..."
