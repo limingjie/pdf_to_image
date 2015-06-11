@@ -1,6 +1,13 @@
 #PDF to Image
 To easily and quickly convert PDF document to images.
 
+##Snapshots
+- Windows
+  ![Windows](/screenshots/windows.png)
+
+- Archlinux
+  ![Archlinux](/screenshots/archlinux.png)
+
 ##Release Note
 ###v0.2
 - Open password protected PDF.
