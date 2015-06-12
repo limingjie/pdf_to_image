@@ -10,22 +10,22 @@ To easily and quickly convert PDF document to images.
 
   ![Archlinux](https://github.com/limingjie/pdf_to_image/blob/master/screenshots/archlinux.png)
 
-##Release Note
-
 ###Download
 - **[GitHub](https://github.com/limingjie/pdf_to_image/releases)**
 - **[Baidu Cloud](http://pan.baidu.com/s/1ntrDD7z)**
 
-###v0.2.1pre
+##Release Note
+
+###Version 0.2.1pre
 - [Issue #2] Specify export directory.
 
-###v0.2
+###Version 0.2
 - Open password protected PDF.
 - New Large (600dpi) quality.
 - [Windows] Static link to CRT, remove dll dependency.
 - [Issue #1] Not valid Win32 application on Windows XP.
 
-###v0.1
+###Version 0.1pre
 - Convert PDF to PNG images.
 - Web (72dpi) and Print (300dpi) quality.
 - Select pages.
