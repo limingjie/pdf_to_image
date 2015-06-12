@@ -23,12 +23,13 @@ private:
     bool         _needs_password;
     char        *_image_name;
     int          _size;
-    std::string  _filename;
+    std::string  _filepath;
+    std::string  _export_filename;
 
     void generate_image_name(int page, int width);
 
 public:
-    pdf(const char *filename);
+    pdf(const char *filepath);
     ~pdf();
 
     bool needs_password();
@@ -36,5 +37,5 @@ public:
 
     int  size();
     bool good();
-    bool render(int from, int to, int zoom = 100);
+    bool render(const char *export_filename, int from, int to, int zoom = 100);
 };

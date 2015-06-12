@@ -5,9 +5,9 @@
 #include <cmath>
 #include <iostream>
 
-pdf::pdf(const char *filename)
+pdf::pdf(const char *filepath)
 {
-    _filename       = filename;
+    _filepath       = filepath;
     _good           = true;
     _image_name     = nullptr;
     _needs_password = false;
@@ -28,7 +28,7 @@ pdf::pdf(const char *filename)
         fz_register_document_handlers(_ctx);
 
         // Open the PDF, XPS or CBZ document.
-        _doc = fz_open_document(_ctx, filename);
+        _doc = fz_open_document(_ctx, filepath);
 
         if (fz_needs_password(_ctx, _doc))
         {
@@ -115,7 +115,7 @@ void pdf::generate_image_name(int page, int width)
 
     if (_image_name == nullptr)
     {
-        std::string filename = _filename + '.' + ss.str() + ".png";
+        std::string filename = _export_filename + '.' + ss.str() + ".png";
         _image_name = new char[filename.size() + 1];
         std::copy(filename.begin(), filename.end(), _image_name);
         _image_name[filename.size()] = '\0';
@@ -124,14 +124,15 @@ void pdf::generate_image_name(int page, int width)
     {
         std::string number = ss.str();
         std::copy(number.begin(), number.end(),
-            &_image_name[_filename.size() + 1]);
+            &_image_name[_export_filename.size() + 1]);
     }
 }
 
-bool pdf::render(int from, int to, int zoom)
+bool pdf::render(const char *export_filename, int from, int to, int zoom)
 {
     if (!_good) return false;
 
+    _export_filename = export_filename;
     int width = std::log10(to) + 1;
 
     // reset _image_name, in case width is different.

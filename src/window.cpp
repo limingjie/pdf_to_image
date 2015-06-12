@@ -137,7 +137,27 @@ void window::on_go_button_click(Fl_Widget *sender, void *obj)
         break;
     }
 
-    if (w->_pdf->render(from, to, zoom))
+    // select export directory
+    Fl_Native_File_Chooser native;
+    native.title("Choose directory");
+    native.options(Fl_Native_File_Chooser::NEW_FOLDER);
+    native.type(Fl_Native_File_Chooser::BROWSE_DIRECTORY);
+    switch (native.show())
+    {
+    case -1: // failure
+        fl_alert(native.errmsg());
+        return;
+    case 0:
+        break;
+    case 1: // cancel
+        return;
+    }
+
+    std::string path(native.filename());
+    path += '/';
+    path += fl_filename_name(w->_filename_input->value());
+
+    if (w->_pdf->render(path.c_str(), from, to, zoom))
     {
         fl_alert("Done.");
     }

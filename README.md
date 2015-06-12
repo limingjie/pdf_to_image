@@ -11,6 +11,8 @@ To easily and quickly convert PDF document to images.
   ![Archlinux](/screenshots/archlinux.png)
 
 ##Release Note
+**[Downloads](https://github.com/limingjie/pdf_to_image/releases)**
+
 ###v0.2
 - Open password protected PDF.
 - New Large (600dpi) quality.
@@ -22,11 +24,7 @@ To easily and quickly convert PDF document to images.
 - Web (72dpi) and Print (300dpi) quality.
 - Select pages.
 
-##Author
-- [Mingjie Li](mailto:limingjie@outlook.com)
-- [GitHub](https://github.com/limingjie)
-
-##Build
+##Manual Build
 ###Linux (g++)
 - Create Development Directory (For linking MuPDF 3rd party libraries)
   ```console
@@ -86,3 +84,7 @@ To easily and quickly convert PDF document to images.
 - Build PDF to Image
   - Open vs2013\pdf_to_image.sln
   - Build the solution.
+
+##Author
+- [Mingjie Li](mailto:limingjie@outlook.com)
+- [GitHub](https://github.com/limingjie)
