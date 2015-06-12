@@ -4,11 +4,11 @@ To easily and quickly convert PDF document to images.
 ##Snapshots
 - Windows 7
 
-  ![Windows](/screenshots/windows.png)
+  ![Windows](https://github.com/limingjie/pdf_to_image/blob/master/screenshots/windows.png)
 
 - Archlinux (Xfce4)
 
-  ![Archlinux](/screenshots/archlinux.png)
+  ![Archlinux](https://github.com/limingjie/pdf_to_image/blob/master/screenshots/archlinux.png)
 
 ##Release Note
 
