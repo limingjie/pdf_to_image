@@ -1,50 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>PDF to Image by limingjie</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+    <title>PDF to Image by limingjie</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/limingjie/pdf_to_image">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/limingjie/pdf_to_image/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/limingjie/pdf_to_image/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+    <header>
+      <div class="inner">
+        <h1>PDF to Image</h1>
+        <h2>Convert PDF to images</h2>
+        <a href="https://github.com/limingjie/pdf_to_image" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
 
-    <div class="wrapper">
-
-      <section>
-        <div id="title">
-          <h1>PDF to Image</h1>
-          <p>Convert PDF to images</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/limingjie">limingjie</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
-
-        <h1>
-<a id="pdf-to-image" class="anchor" href="#pdf-to-image" aria-hidden="true"><span class="octicon octicon-link"></span></a>PDF to Image</h1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="pdf-to-image" class="anchor" href="#pdf-to-image" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PDF to Image</h1>
 
 <p>To easily and quickly convert PDF document to images.</p>
 
 <h2>
-<a id="snapshots" class="anchor" href="#snapshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snapshots</h2>
+<a id="snapshots" class="anchor" href="#snapshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Snapshots</h2>
 
 <ul>
 <li>
@@ -60,7 +50,7 @@
 </ul>
 
 <h2>
-<a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h2>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h2>
 
 <ul>
 <li><strong><a href="https://github.com/limingjie/pdf_to_image/releases">GitHub</a></strong></li>
@@ -68,17 +58,17 @@
 </ul>
 
 <h2>
-<a id="release-note" class="anchor" href="#release-note" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release Note</h2>
+<a id="release-note" class="anchor" href="#release-note" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Release Note</h2>
 
 <h3>
-<a id="version-021pre" class="anchor" href="#version-021pre" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.2.1pre</h3>
+<a id="version-021pre" class="anchor" href="#version-021pre" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version 0.2.1pre</h3>
 
 <ul>
 <li>[Issue #2] Specify export directory.</li>
 </ul>
 
 <h3>
-<a id="version-02" class="anchor" href="#version-02" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.2</h3>
+<a id="version-02" class="anchor" href="#version-02" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version 0.2</h3>
 
 <ul>
 <li>Open password protected PDF.</li>
@@ -88,7 +78,7 @@
 </ul>
 
 <h3>
-<a id="version-01pre" class="anchor" href="#version-01pre" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.1pre</h3>
+<a id="version-01pre" class="anchor" href="#version-01pre" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version 0.1pre</h3>
 
 <ul>
 <li>Convert PDF to PNG images.</li>
@@ -97,55 +87,55 @@
 </ul>
 
 <h2>
-<a id="manual-build" class="anchor" href="#manual-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Build</h2>
+<a id="manual-build" class="anchor" href="#manual-build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Manual Build</h2>
 
 <h3>
-<a id="linux-g" class="anchor" href="#linux-g" aria-hidden="true"><span class="octicon octicon-link"></span></a>Linux (g++)</h3>
+<a id="linux-g" class="anchor" href="#linux-g" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linux (g++)</h3>
 
 <ul>
 <li>
 <p>Create Development Directory (For linking MuPDF 3rd party libraries)</p>
 
-<div class="highlight highlight-console"><pre>$ <span class="pl-s1"><span class="pl-c1">cd</span></span>
-$ <span class="pl-s1">mkdir Development</span>
-$ <span class="pl-s1"><span class="pl-c1">cd</span> Development</span></pre></div>
+<div class="highlight highlight-text-shell-session"><pre><span class="pl-mo">cd</span>
+<span class="pl-mo">mkdir Development</span>
+<span class="pl-mo">cd Development</span></pre></div>
 </li>
 <li>
 <p>Build and Install FLTK</p>
 
-<div class="highlight highlight-console"><pre>$ <span class="pl-s1">curl -O http://fltk.org/pub/fltk/1.3.3/fltk-1.3.3-source.tar.gz</span>
-$ <span class="pl-s1">tar zxvf fltk-1.3.3-source.tar.gz</span>
-$ <span class="pl-s1"><span class="pl-c1">cd</span> fltk-1.3.3-source</span>
-$ <span class="pl-s1">make</span>
-$ <span class="pl-s1">make install</span></pre></div>
+<div class="highlight highlight-text-shell-session"><pre><span class="pl-mo">curl -O http://fltk.org/pub/fltk/1.3.3/fltk-1.3.3-source.tar.gz</span>
+<span class="pl-mo">tar zxvf fltk-1.3.3-source.tar.gz</span>
+<span class="pl-mo">cd fltk-1.3.3-source</span>
+<span class="pl-mo">make</span>
+<span class="pl-mo">make install</span></pre></div>
 </li>
 <li>
 <p>Build and Install MuPDF</p>
 
-<div class="highlight highlight-console"><pre>$ <span class="pl-s1">curl -O http://mupdf.com/downloads/mupdf-1.7a-source.tar.gz</span>
-$ <span class="pl-s1">tar zxvf mupdf-1.7a-source.tar.gz</span>
-$ <span class="pl-s1"><span class="pl-c1">cd</span> mupdf-1.7a-source</span>
-$ <span class="pl-s1">make build=release</span>
-$ <span class="pl-s1">make build=release install</span></pre></div>
+<div class="highlight highlight-text-shell-session"><pre><span class="pl-mo">curl -O http://mupdf.com/downloads/mupdf-1.7a-source.tar.gz</span>
+<span class="pl-mo">tar zxvf mupdf-1.7a-source.tar.gz</span>
+<span class="pl-mo">cd mupdf-1.7a-source</span>
+<span class="pl-mo">make build=release</span>
+<span class="pl-mo">make build=release install</span></pre></div>
 </li>
 <li>
 <p>Build PDF to Image</p>
 
-<div class="highlight highlight-console"><pre>$ <span class="pl-s1">git clone --depth=1 https://github.com/limingjie/pdf_to_image</span>
-$ <span class="pl-s1"><span class="pl-c1">cd</span> pdf_to_image</span>
-$ <span class="pl-s1">make</span></pre></div>
+<div class="highlight highlight-text-shell-session"><pre><span class="pl-mo">git clone --depth=1 https://github.com/limingjie/pdf_to_image</span>
+<span class="pl-mo">cd pdf_to_image</span>
+<span class="pl-mo">make</span></pre></div>
 </li>
 </ul>
 
 <h3>
-<a id="windows-visual-studio-2013" class="anchor" href="#windows-visual-studio-2013" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows (Visual Studio 2013)</h3>
+<a id="windows-visual-studio-2013" class="anchor" href="#windows-visual-studio-2013" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows (Visual Studio 2013)</h3>
 
 <ul>
 <li>
-<p>Build FLTK (Optional, pre-built libraries provided.)</p>
+<p>Build FLTK (Or use pre-build fltk library)</p>
 
 <ul>
-<li>Download and extract <a href="http://fltk.org/pub/fltk/1.3.3/fltk-1.3.3-source.tar.gz">http://fltk.org/pub/fltk/1.3.3/fltk-1.3.3-source.tar.gz</a>.</li>
+<li>Download and extract <a href="http://fltk.org/pub/fltk/1.3.3/fltk-1.3.3-source.tar.gz">fltk-1.3.3-source.tar.gz</a>.</li>
 <li>Install CMake, generate Visual Studio solution and project files.</li>
 <li>Open Visual Studio solution.</li>
 <li>In Properties, change Configuration -&gt; C/C++ -&gt; Code Generation -&gt;
@@ -165,14 +155,22 @@ Runtime Library to <strong>Multi-threaded (/MT)</strong> for following projects.
 </ul>
 </li>
 <li>
-<p>Build MuPDF (Optional, pre-built libraries provided.)</p>
+<p>Build MuPDF (Or use pre-build MuPDF library)</p>
 
 <ul>
-<li>Download and extract <a href="http://mupdf.com/downloads/mupdf-1.7a-source.tar.gz">http://mupdf.com/downloads/mupdf-1.7a-source.tar.gz</a>.</li>
+<li>Download and extract <a href="http://mupdf.com/downloads/mupdf-1.7a-source.tar.gz">mupdf-1.7a-source.tar.gz</a>.</li>
 <li>Open mupdf-1.7a-source\platform\win32\mupdf.sln.</li>
 <li>In Properties, change Configuration -&gt; C/C++ -&gt; Code Generation -&gt;
 Runtime Library to <strong>Multi-threaded (/MT)</strong> for all projects.</li>
 <li>Build the solution.</li>
+</ul>
+</li>
+<li>
+<p>Using FLTK and MuPDF pre-build libraries</p>
+
+<ul>
+<li>In fltk folder, extract fltk-1.3.3-prebuilt-x86-x64.7z.</li>
+<li>In mupdf folder, extract mupdf-1.7a-prebuilt-x86-x64.7z.</li>
 </ul>
 </li>
 <li>
@@ -186,16 +184,31 @@ Runtime Library to <strong>Multi-threaded (/MT)</strong> for all projects.</li>
 </ul>
 
 <h2>
-<a id="author" class="anchor" href="#author" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author</h2>
+<a id="author" class="anchor" href="#author" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Author</h2>
 
 <ul>
 <li><a href="mailto:limingjie@outlook.com">Mingjie Li</a></li>
 <li><a href="https://github.com/limingjie">GitHub</a></li>
 </ul>
-      </section>
+        </section>
 
+        <aside id="sidebar">
+          <a href="https://github.com/limingjie/pdf_to_image/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/limingjie/pdf_to_image/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/limingjie/pdf_to_image"></a> is maintained by <a href="https://github.com/limingjie">limingjie</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+  
   </body>
 </html>
