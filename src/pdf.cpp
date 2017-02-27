@@ -147,7 +147,7 @@ bool pdf::render(const char *export_filename, int from, int to, int zoom)
     // scaling factor. Without scaling the resolution is 72 dpi.
     fz_matrix transform;
     fz_rotate(&transform, 0);
-    fz_pre_scale(&transform, zoom / 100.0f, zoom / 100.0f);
+    fz_pre_scale(&transform, zoom / 72.0f, zoom / 72.0f);
 
     for (int i = from; i <= to; ++i)
     {

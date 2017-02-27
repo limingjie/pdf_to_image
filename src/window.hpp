@@ -13,10 +13,10 @@
 #include <FL/Fl_Native_File_Chooser.H>
 #include <FL/fl_ask.H>
 #include <FL/Fl_Input.H>
-#include <FL/Fl_Choice.H>
-#include <FL/Fl_Check_Button.H>
-#include <FL/Fl_Spinner.H>
 #include <FL/filename.H> // fl_open_uri
+#include <FL/Fl_Check_Button.H>
+#include <FL/Fl_Input_Choice.H>
+#include <FL/Fl_Spinner.H>
 
 #include <string>
 
@@ -32,7 +32,7 @@ private:
     Fl_Check_Button *_page_check;
     Fl_Spinner      *_from_page_spinner;
     Fl_Spinner      *_to_page_spinner;
-    Fl_Choice       *_quality_choice;
+    Fl_Input_Choice *_resolution_choice;
 
     void create_ui();
     static void on_pick_button_click(Fl_Widget *sender, void *obj);

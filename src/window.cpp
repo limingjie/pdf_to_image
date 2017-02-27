@@ -1,4 +1,34 @@
+#include <FL/Fl_Menu_Button.H>
+
 #include "window.hpp"
+
+const std::string resolutions[3] = {"Web (72dpi)", "Print (300dpi)", "Large (600dpi)"};
+
+// compare string case insensitive
+static bool iequals(const std::string &str1, const std::string &str2)
+{
+    if (str1.size() != str2.size())
+    {
+        return false;
+    }
+
+    auto c1  = str1.cbegin();
+    auto c2  = str2.cbegin();
+    auto end = str1.cend();
+
+    while (c1 != end)
+    {
+        if (tolower(*c1) != tolower(*c2))
+        {
+            return false;
+        }
+
+        ++c1;
+        ++c2;
+    }
+
+    return true;
+}
 
 window::window(int x, int y, int w, int h, const char *label)
     : Fl_Window(x, y, w, h, label)
@@ -23,7 +53,7 @@ void window::create_ui()
     _page_check->value(0);
     _page_check->callback(on_page_check_click, this);
 
-    _from_page_spinner = new Fl_Spinner(90, 45, 50, 25, "Pages:");
+    _from_page_spinner = new Fl_Spinner(80, 45, 50, 25, "Pages:");
     _from_page_spinner->step(1);
     _from_page_spinner->minimum(1);
     _from_page_spinner->maximum(1);
@@ -32,7 +62,7 @@ void window::create_ui()
     _from_page_spinner->when(FL_WHEN_CHANGED);
     _from_page_spinner->callback(on_from_page_spinner_change, this);
 
-    _to_page_spinner = new Fl_Spinner(150, 45, 50, 25, "-");
+    _to_page_spinner = new Fl_Spinner(140, 45, 50, 25, "-");
     _to_page_spinner->step(1);
     _to_page_spinner->minimum(1);
     _to_page_spinner->maximum(1);
@@ -41,11 +71,12 @@ void window::create_ui()
     _to_page_spinner->when(FL_WHEN_CHANGED);
     _to_page_spinner->callback(on_to_page_spinner_change, this);
 
-    _quality_choice = new Fl_Choice(270, 45, 120, 25, "Quality:");
-    _quality_choice->add("Web (72dpi)");
-    _quality_choice->add("Print (300dpi)");
-    _quality_choice->add("Large (600dpi)");
-    _quality_choice->value(0);
+    _resolution_choice = new Fl_Input_Choice(270, 45, 120, 25, "Resolution:");
+    Fl_Menu_Button *_menu_button = _resolution_choice->menubutton();
+    _menu_button->add(resolutions[0].c_str());
+    _menu_button->add(resolutions[1].c_str());
+    _menu_button->add(resolutions[2].c_str());
+    _resolution_choice->value(0);
 
     Fl_Button *author = new Fl_Button(10, 75, 380, 15,
         "Mingjie Li (https://github.com/limingjie/pdf_to_image)");
@@ -61,7 +92,7 @@ void window::on_pick_button_click(Fl_Widget *sender, void *obj)
     window *w = (window *)obj;
 
     Fl_Native_File_Chooser native;
-    native.title("Pick a document");
+    native.title("Open");
     native.type(Fl_Native_File_Chooser::BROWSE_FILE);
     native.filter("PDF\t*.pdf");
     if (w->_filename_input->size() != 0)
@@ -89,13 +120,13 @@ void window::on_go_button_click(Fl_Widget *sender, void *obj)
 
     if (w->_filename_input->size() == 0)
     {
-        fl_alert("Please pick a document.");
+        fl_alert("Select a PDF document.");
         return;
     }
 
     if (!w->_pdf->good())
     {
-        fl_alert("Cannot open document.");
+        fl_alert("Cannot open the PDF document.");
         return;
     }
 
@@ -121,20 +152,41 @@ void window::on_go_button_click(Fl_Widget *sender, void *obj)
     }
 
     int zoom;
-    switch (w->_quality_choice->value())
+	std::string resolution = w->_resolution_choice->value();
+    if (iequals(resolution, resolutions[0]))
     {
-    case 0:
-        zoom = 100; // 72dpi
-        break;
-    case 1:
-        zoom = 417; // 300dpi
-        break;
-    case 2:
-        zoom = 833; // 600dpi
-        break;
-    default:
-        zoom = 100;
-        break;
+        zoom = 72;
+    }
+    else if (iequals(resolution, resolutions[1]))
+    {
+        zoom = 300;
+    }
+    else if (iequals(resolution, resolutions[2]))
+    {
+        zoom = 600;
+    }
+    else
+    {
+        bool converted = true;
+        try {
+            zoom = std::stoi(resolution);
+            if (zoom < 72 || zoom > 1000)
+            {
+                converted = false;
+            }
+        }
+        catch (const std::invalid_argument &ia) {
+            converted = false;
+        }
+        catch (const std::out_of_range &or) {
+            converted = false;
+        }
+
+        if (!converted)
+        {
+            fl_alert("Invalid resolution, enter a value between 72 and 1000.");
+            return;
+        }
     }
 
     // select export directory
