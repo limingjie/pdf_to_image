@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include <FL/Fl_Menu_Button.H>
 
 #include "window.hpp"
@@ -175,10 +176,10 @@ void window::on_go_button_click(Fl_Widget *sender, void *obj)
                 converted = false;
             }
         }
-        catch (const std::invalid_argument &ia) {
+        catch (const std::invalid_argument &invalid) {
             converted = false;
         }
-        catch (const std::out_of_range &or) {
+        catch (const std::out_of_range &out) {
             converted = false;
         }
 
