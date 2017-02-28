@@ -19,6 +19,10 @@ To easily and quickly convert PDF document to images.
 
 ## Release Note
 
+### Version 0.2.2beta
+
+- Custom image resolution, [72, 1000]dpi.
+
 ### Version 0.2.1pre
 
 - [Issue #2] Specify export directory.
