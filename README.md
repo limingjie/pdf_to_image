@@ -62,7 +62,7 @@ To easily and quickly convert PDF document to images.
 
 - Build and Install MuPDF
   ```console
-  curl -O http://mupdf.com/downloads/mupdf-1.7a-source.tar.gz
+  curl -O http://mupdf.com/downloads/archive/mupdf-1.7a-source.tar.gz
   tar zxvf mupdf-1.7a-source.tar.gz
   cd mupdf-1.7a-source
   make build=release
@@ -94,7 +94,7 @@ To easily and quickly convert PDF document to images.
   - Build these projects.
 
 - Build MuPDF (Or use pre-build MuPDF library)
-  - Download and extract [mupdf-1.7a-source.tar.gz](http://mupdf.com/downloads/mupdf-1.7a-source.tar.gz).
+  - Download and extract [mupdf-1.7a-source.tar.gz](http://mupdf.com/downloads/archive/mupdf-1.7a-source.tar.gz).
   - Open mupdf-1.7a-source\platform\win32\mupdf.sln.
   - In Properties, change Configuration -> C/C++ -> Code Generation ->
   Runtime Library to **Multi-threaded (/MT)** for all projects.
